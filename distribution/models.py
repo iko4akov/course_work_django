@@ -12,7 +12,8 @@ class Client(models.Model):
     comment = models.TextField(verbose_name='Коментарий')
 
     def __str__(self):
-        return f'{self.second_name} {self.first_name[0]}.{self.third_name[0]}.'
+        name_slice = lambda x: x[0]+'.' if x else None
+        return f'{self.second_name} {name_slice(self.first_name)}.{name_slice(self.third_name)}.'
 
     class Meta:
         verbose_name = 'Клиент'
@@ -53,7 +54,7 @@ class Status(models.Model):
         verbose_name_plural = 'Статусы'
 
 
-class Distription(models.Model):
+class Distribution(models.Model):
 
     time = models.TimeField(verbose_name='Время рассылки')
     period = models.ForeignKey(Period, on_delete=models.CASCADE, verbose_name='период')
@@ -71,8 +72,23 @@ class Distription(models.Model):
 class Logs(models.Model):
 
     try_last = models.DateTimeField(default=timezone.now)
-    status = models.ForeignKey(Distription, on_delete=models.CASCADE)
+    status = models.ForeignKey(Distribution, on_delete=models.CASCADE)
     respounse = models.CharField(**NULLABLE)
 
     def __str__(self):
         return f'{self.try_last}'
+    class Meta:
+        verbose_name = 'Лог'
+        verbose_name_plural = 'Логи'
+
+
+class DistributClien(models.Model):
+    distribution = models.ForeignKey(Distribution, on_delete=models.CASCADE, verbose_name='рассылка')
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name='клиент')
+
+    def __str__(self):
+        return f'{self.distribution} - {self.client}'
+
+    class Meta:
+        verbose_name = 'Связь'
+        verbose_name_plural = 'Связи'
