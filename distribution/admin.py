@@ -22,12 +22,14 @@ class PeriodAdmin(admin.ModelAdmin):
 
 @admin.register(Message)
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ('theme', )
+    list_display = ('pk', 'theme', 'message',)
     search_fields = ('message', 'theme', )
 
 @admin.register(Distribution)
 class DistributionAdmin(admin.ModelAdmin):
-    list_display = ('time',)
+    list_display = ('pk', 'time', 'period', 'status')
+    list_filter = ('time', 'period', 'status')
+    search_fields = ('time', 'period', 'status')
 
 @admin.register(Logs)
 class LogsAdmin(admin.ModelAdmin):
