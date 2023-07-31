@@ -13,5 +13,5 @@ class Params(models.Model):
         return f'{self.time, self.status}'
 
     class Meta:
-        verbose_name = 'Рассылка'
-        verbose_name_plural = 'Рассылки'
+        verbose_name = 'Параметр'
+        verbose_name_plural = 'Параметры'

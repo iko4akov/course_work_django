@@ -22,20 +22,26 @@
     <link rel="icon" href="{{ 'favicon.ico' | mediapath }} ">
     <meta name="theme-color" content="#7952b3">
 
-    {% include 'params/includes/inc_styles.html' %}
+    {% include 'send/includes/inc_styles.html' %}
 
 <body class="d-flex h-100 text-center text-white bg-dark">
 
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-auto">
         <div>
-            <h3 class="float-md-start mb-0">Cover</h3>
+            <h3 class="float-md-start mb-0">Рассылка</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link active" aria-current="page" href="{% url 'send:distribution_list' %}">Destributions</a>
-                <a class="nav-link" href="#">Clients</a>
-                <a class="nav-link" href="#">Messages</a>
-                <a class="nav-link" href="#">Connections</a>
-                <a class="nav-link" href="#">Logs</a>
+                <div class="col-lg-auto">
+                <a class="nav-link active" aria-current="page" href="{% url 'send:create' %}">Создать отправление</a>
+                <a class="nav-link" href="{% url 'send:send_list' %}">Посмотреть все</a>
+                </div>
+                <div class="col-lg-auto">
+                <a class="nav-link active" aria-current="page" href="{% url 'params:create' %}">Создать параметры</a>
+                <a class="nav-link" href="#">2</a>
+                <a class="nav-link" href="#">2</a>
+                <a class="nav-link" href="#">2</a>
+                <a class="nav-link" href="#">2</a>
+                </div>
             </nav>
         </div>
     </header>

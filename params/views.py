@@ -12,7 +12,7 @@ class ParamsDetailView(DetailView):
 
 class ParamsCreateView(CreateView):
     model = Params
-
+    fields = ['time', 'period', 'status', 'message']
 
 class ParamsUpdateView(UpdateView):
     model = Params
