@@ -6,10 +6,8 @@ from send.models import Send
 
 class SendCreateView(CreateView):
     model = Send
-
     fields = ['params', 'client']
 
-    success_url = 'send:send_list'
 
 class SendListView(ListView):
     model = Send
