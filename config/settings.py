@@ -41,7 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'distribution',
+    'client',
+    'status',
+    'period',
+    'message',
+    'params',
+    'send',
+    'logs',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +87,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'distribution',
+        'NAME': 'params',
         'USER': os.getenv('USER_PSQL'),
         'PASSWORD': os.getenv('PASS_PSQL'),
     }
