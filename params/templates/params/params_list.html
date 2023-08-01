@@ -1,8 +1,20 @@
-{% extends 'params/base.html' %}
+{% extends 'send/base.html' %}
 {% block content %}
-   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h1 class="display-4">Всего рассылок: {{ object_list|length }}</h1>
-      <p class="lead">Количество активных рассылок:{{ ob }}</p>
-      <p class="lead">Количество активных рассылок:</p>
+    <div>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link" href="{% url 'params:create' %}">Создать параметры</a>
+        </nav>
     </div>
+    {% for object in object_list %}
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <a class="link-light" href="{% url 'params:detail' object.pk %}"><h3>Номер:{{ object.id }}</h3></a>
+            <p class="lead">Тема: {{ object.message.theme }}</p>
+            <p class="lead">Текст: {{ object.message|slice:50 }}</p>
+            <p class="lead">Время: {{ object.time }}</p>
+            <p class="lead">Статус: {{ object.status.name }}</p>
+            <p class="lead">Период: {{ object.period.name }}</p>
+            <a href="{% url 'params:delete' object.pk %}" type="submit" class="button btn btn-warning">Удалить</a>
+            <hr>
+        </div>
+    {% endfor %}
 {% endblock %}

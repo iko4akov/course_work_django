@@ -1,22 +1,28 @@
+from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
-from params.models import Params
+from params.models import Message
 
 
 class ParamsListView(ListView):
-    model = Params
+    model = Message
 
 
 class ParamsDetailView(DetailView):
-    model = Params
+    model = Message
 
 
 class ParamsCreateView(CreateView):
-    model = Params
+    model = Message
     fields = ['time', 'period', 'status', 'message']
 
+    success_url = reverse_lazy('params:params_list')
+
 class ParamsUpdateView(UpdateView):
-    model = Params
+    model = Message
+
 
 
 class ParamsDeleteView(DeleteView):
-    model = Params
+    model = Message
+
+    success_url = reverse_lazy('params:params_list')

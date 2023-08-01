@@ -1,0 +1,16 @@
+{% extends 'send/base.html' %}
+{% block content %}
+    <div>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link" href="{% url 'message:create' %}">Создать сообщение</a>
+        </nav>
+    </div>
+    {% for object in object_list %}
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <a class="link-light" href="{% url 'message:detail' object.pk %}"><h3>Тема: {{ object.theme }}</h3></a>
+            <p class="lead">Текст: {{ object.message|slice:50 }}</p>
+            <a href="{% url 'message:delete' object.pk %}" type="submit" class="button btn btn-warning">Удалить</a>
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}

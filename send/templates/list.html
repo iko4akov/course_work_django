@@ -1,0 +1,11 @@
+{% extends 'send/base.html' %}
+{% load my_tags %}
+{% block content %}
+    {% for object in object_list %}
+        <div class="table">
+            <h1 class="display-4">{{ object.id }}</h1>
+            <p class="lead">{{ object.client }}</p>
+            <p class="lead">{{ object.params }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

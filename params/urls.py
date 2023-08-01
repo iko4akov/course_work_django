@@ -7,7 +7,7 @@ app_name = ParamsConfig.name
 
 urlpatterns = [
     path('params/', ParamsListView.as_view(), name='params_list'),
-    path('params/view/<int:pk>', ParamsDetailView.as_view(), name='view'),
+    path('params/detail/<int:pk>', ParamsDetailView.as_view(), name='detail'),
     path('params/create/', ParamsCreateView.as_view(), name='create'),
     path('params/update/<int:pk>', ParamsUpdateView.as_view(), name='update'),
     path('params/delete/<int:pk>', ParamsDeleteView.as_view(), name='delete'),

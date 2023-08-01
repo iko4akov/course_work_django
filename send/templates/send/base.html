@@ -29,19 +29,9 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-auto">
         <div>
-            <h3 class="float-md-start mb-0">Рассылка</h3>
+            <h3 class="float-md-start mb-0"><a class="link-light"  href="{% url 'send:send_list' %}">Рассылка</a></h3>
             <nav class="nav nav-masthead justify-content-center float-md-end">
-                <div class="col-lg-auto">
-                <a class="nav-link active" aria-current="page" href="{% url 'send:create' %}">Создать отправление</a>
-                <a class="nav-link" href="{% url 'send:send_list' %}">Посмотреть все</a>
-                </div>
-                <div class="col-lg-auto">
-                <a class="nav-link active" aria-current="page" href="{% url 'params:create' %}">Создать параметры</a>
-                <a class="nav-link" href="#">2</a>
-                <a class="nav-link" href="#">2</a>
-                <a class="nav-link" href="#">2</a>
-                <a class="nav-link" href="#">2</a>
-                </div>
+                <a class="nav-link" href="{% url 'send:create' %}">Создать отправление</a>
             </nav>
         </div>
     </header>
@@ -50,8 +40,11 @@
         {% endblock %}
     </main>
         <footer class="mt-auto text-white-50">
-            <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a
-                    href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+           <nav class="nav nav-masthead justify-content-center float-md-end">
+                <a class="nav-link active" aria-current="page" href="{% url 'params:params_list' %}">Параметры</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'message:message_list' %}">Сообщения</a>
+                <a class="nav-link active" aria-current="page" href="#">Логи</a>
+            </nav>
         </footer>
 </body>
 

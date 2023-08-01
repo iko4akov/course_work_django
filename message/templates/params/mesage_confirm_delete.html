@@ -8,9 +8,8 @@
                         <form method="post">
                             {% csrf_token %}
                             Подтвердить удаление
-                            <p>Со временем: {{ object.time }}</p>
-                            <p>С темой сообщения: {{ object.message.theme }}</p>
-                            <p>Со статусом: {{ object.status }}</p>
+                            <p>Со временем: {{ object.theme }}</p>
+                            <p>С темой сообщения: {{ object.message }}</p>
                             <p><button href="{% url 'params:params_list' %}" type="submit" class="button btn btn-success">Подтвердить</button>
                                 <a href="{% url "params:params_list" %}" class="btn btn-warning">Отмена</a></p>
                         </form>
