@@ -11,11 +11,18 @@
                     <div class="col text-center">
                         <div class="card text-center">
                             <div class="card-body text-center bg-dark">
-                                <p>{{ object.time }}</p>
-                                <p class="card-text">{{ object.message.theme }}</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                </div>
-                                <p class="text-muted">{{ object.period.name }}</p>
+                                <p>{{ object.title }} {{ object.slug }}</p>
+                                    <p class="card-text">{{ object.content }}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                             <a href="{% url 'params:params_list' %}" type="button" class="btn btn-sm btn-outline-secondary">
+                                                View {{ object.count_view }}</a>
+                                             <a href="{% url 'params:update' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">
+                                                Edite</a>
+                                            <a href="{% url 'params:delete' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">
+                                                Delete</a>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                     </div>

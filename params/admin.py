@@ -1,8 +1,8 @@
 from django.contrib import admin
-from params.models import Message
+from params.models import Params
 
 
-@admin.register(Message)
+@admin.register(Params)
 class ParamsAdmin(admin.ModelAdmin):
     list_display = ('pk', 'time', 'period', 'status')
     list_filter = ('time', 'period', 'status')

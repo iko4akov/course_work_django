@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('client', '0001_initial'),
-        ('params', '0001_initial'),
+        ('message', '0001_initial'),
     ]
 
     operations = [
@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('client', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='client.client', verbose_name='клиент')),
-                ('params', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='params.params', verbose_name='рассылка')),
+                ('message', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='message.message', verbose_name='рассылка')),
             ],
             options={
                 'verbose_name': 'Отправление',

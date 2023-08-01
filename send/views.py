@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
 from send.models import Send
@@ -20,7 +19,7 @@ class SendDetailView(DetailView):
 class SendUpdateView(UpdateView):
     model = Send
 
-    fields = ['params.period', 'client']
+    fields = ['params', 'client']
 
 
 class SendDeleteView(DeleteView):

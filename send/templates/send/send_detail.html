@@ -13,11 +13,11 @@
                                     <p class="card-text">{{ object.content }}</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                             <a href="{% url 'blog:view' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">
+                                             <a href="{% url 'send:view' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">
                                                 View {{ object.count_view }}</a>
-                                             <a href="{% url 'blog:update' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">
+                                             <a href="{% url 'send:update' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">
                                                 Edite</a>
-                                            <a href="{% url 'blog:delete' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">
+                                            <a href="{% url 'send:delete' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">
                                                 Delete</a>
                                         </div>
                                     </div>

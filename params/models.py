@@ -4,7 +4,7 @@ from django.db import models
 NULLABLE = {'blank': True, 'null': True}
 
 
-class Message(models.Model):
+class Params(models.Model):
     time = models.TimeField(verbose_name='Время рассылки')
     period = models.ForeignKey('period.Period', on_delete=models.CASCADE, verbose_name='период')
     status = models.ForeignKey('status.Status', default='создана', on_delete=models.CASCADE, verbose_name='статус')

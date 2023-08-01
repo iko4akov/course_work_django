@@ -1,5 +1,3 @@
-from django.urls import include
-
 from config.urls import path
 from message.apps import MessageConfig
 from message.views import MessageCreateView, MessageListView, MessageDetailView, MessageUpdateView, MessageDeleteView

@@ -6,9 +6,9 @@ from params.views import ParamsDeleteView, ParamsCreateView, ParamsDetailView, P
 app_name = ParamsConfig.name
 
 urlpatterns = [
-    path('params/', ParamsListView.as_view(), name='params_list'),
-    path('params/detail/<int:pk>', ParamsDetailView.as_view(), name='detail'),
-    path('params/create/', ParamsCreateView.as_view(), name='create'),
-    path('params/update/<int:pk>', ParamsUpdateView.as_view(), name='update'),
-    path('params/delete/<int:pk>', ParamsDeleteView.as_view(), name='delete'),
+    path('message/', ParamsListView.as_view(), name='params_list'),
+    path('message/detail/<int:pk>', ParamsDetailView.as_view(), name='detail'),
+    path('message/create/', ParamsCreateView.as_view(), name='create'),
+    path('message/update/<int:pk>', ParamsUpdateView.as_view(), name='update'),
+    path('message/delete/<int:pk>', ParamsDeleteView.as_view(), name='delete'),
 ]

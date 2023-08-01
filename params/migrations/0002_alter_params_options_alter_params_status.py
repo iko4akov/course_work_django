@@ -8,16 +8,16 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('status', '0001_initial'),
-        ('params', '0001_initial'),
+        ('message', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='params',
+            name='message',
             options={'verbose_name': 'Параметр', 'verbose_name_plural': 'Параметры'},
         ),
         migrations.AlterField(
-            model_name='params',
+            model_name='message',
             name='status',
             field=models.ForeignKey(default='создана', on_delete=django.db.models.deletion.CASCADE, to='status.status', verbose_name='статус'),
         ),
