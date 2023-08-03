@@ -7,12 +7,14 @@
     </div>
     {% for object in object_list %}
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-            <a class="link-light" href="{% url 'params:detail' object.pk %}"><h3>Номер:{{ object.id }}</h3></a>
+            <h3>Номер:{{ object.id }}</h3>
             <p class="lead">Тема: {{ object.message.them }}</p>
             <p class="lead">Текст: {{ object.message.message|slice:50 }}</p>
             <p class="lead">Время: {{ object.time }}</p>
             <p class="lead">Статус: {{ object.status.name }}</p>
             <p class="lead">Период: {{ object.period.name }}</p>
+            <a href="{% url 'params:detail' object.pk %}" type="submit" class="button btn btn-warning">Посмотреть</a>
+            <a href="{% url 'params:update' object.pk %}" type="submit" class="button btn btn-warning">Редактировать</a>
             <a href="{% url 'params:delete' object.pk %}" type="submit" class="button btn btn-warning">Удалить</a>
             <hr>
         </div>

@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'status',
     'period',
     'message',
-    'params',
     'send',
     'logs',
 ]

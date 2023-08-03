@@ -20,7 +20,8 @@ class ParamsCreateView(CreateView):
 
 class ParamsUpdateView(UpdateView):
     model = Params
-
+    fields = ['time', 'period', 'status', 'message']
+    success_url = reverse_lazy('params:detail')
 
 class ParamsDeleteView(DeleteView):
     model = Params

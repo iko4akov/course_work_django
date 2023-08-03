@@ -5,7 +5,7 @@ from send.models import Send
 
 class SendCreateView(CreateView):
     model = Send
-    fields = ['params', 'client']
+    fields = ['status', 'client', 'period', 'message', 'time']
 
 
 class SendListView(ListView):
@@ -19,7 +19,7 @@ class SendDetailView(DetailView):
 class SendUpdateView(UpdateView):
     model = Send
 
-    fields = ['params', 'client']
+    fields = ['status', 'client', 'period', 'message', 'time']
 
 
 class SendDeleteView(DeleteView):

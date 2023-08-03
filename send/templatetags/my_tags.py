@@ -24,7 +24,7 @@ def count_acive(object_list: list[Send]) -> int:
     if object_list:
         count = 0
         for obj in object_list:
-            if obj.params.status.name == 'Запущено':
+            if obj.status.name == 'Запущена':
                 count += 1
         return count
     else:
