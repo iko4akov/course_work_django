@@ -13,7 +13,7 @@ class Client(models.Model):
 
     def __str__(self):
         name_slice = lambda x: x[0]+'.' if x else None
-        return f'{self.second_name} {name_slice(self.first_name)}.{name_slice(self.third_name)}.'
+        return f'{self.second_name} {name_slice(self.first_name)}{name_slice(self.third_name)}'
 
     class Meta:
         verbose_name = 'Клиент'
