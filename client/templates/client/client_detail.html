@@ -13,17 +13,16 @@
                                     <div class="card-body text-center bg-dark">
                                         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
                                             <h3>Номер:{{ object.id }}</h3>
-                                            <p class="lead">ФИО: {{ object.client }}</p>
-                                            <p class="lead">Статус: {{ object.status }}</p>
-                                            <p class="lead">Тема сообщения: {{ object.message }}</p>
-                                            <p class="lead">Период: {{ object.period }}</p>
-                                            <p class="lead">Время рассылки: {{ object.time }}</p>
+                                            <p class="lead">ФИО: {{ object }}</p>
+                                            <p class="lead">Почта: {{ object.email }}</p>
+                                            <p class="lead">Комментарий: {{ object.comment|slice:50 }}</p>
                                             <a href="{% url 'client:client_view' object.pk %}" type="submit"
                                                class="button btn btn-warning">Посмотреть</a>
                                             <a href="{% url 'client:update' object.pk %}" type="submit"
                                                class="button btn btn-warning">Редактировать</a>
                                             <a href="{% url 'client:delete' object.pk %}" type="submit"
                                                class="button btn btn-warning">Удалить</a>
+                                            <hr>
                                         </div>
                                     </div>
                                 </div>

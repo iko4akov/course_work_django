@@ -29,9 +29,9 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-auto">
         <div>
-            <h3 class="float-md-start mb-0"><a class="link-light"  href="{% url 'send:send_list' %}">Рассылка</a></h3>
+            <h3 class="float-md-start mb-0"><a class="link-light"  href="{% url 'send:sends' %}">Главная</a></h3>
             <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link" href="{% url 'send:create' %}">Создать отправление</a>
+                <a class="nav-link" href="{% url 'send:create' %}">Создать рассылку</a>
             </nav>
         </div>
     </header>
@@ -42,6 +42,8 @@
         <footer class="mt-auto text-white-50">
            <nav class="nav nav-masthead justify-content-center float-md-end">
                 <a class="nav-link active" aria-current="page" href="{% url 'message:message_list' %}">Сообщения</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'client:client_list' %}">Клиенты</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'send:send_list' %}">Рассылки</a>
                 <a class="nav-link active" aria-current="page" href="#">Логи</a>
             </nav>
         </footer>

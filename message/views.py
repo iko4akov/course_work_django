@@ -20,7 +20,10 @@ class MessageCreateView(CreateView):
 
 class MessageUpdateView(UpdateView):
     model = Message
+
     fields = ['theme', 'message']
+
+    success_url = reverse_lazy('message:message_list')
 
 
 class MessageDeleteView(DeleteView):

@@ -1,9 +1,20 @@
 {% extends 'send/base.html' %}
 {% load my_tags %}
 {% block content %}
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">Всего рассылок: {{ object_list|length }}</h1>
-        <p class="lead">Количество активных рассылок:{% count_acive object_list %}</p>
-        <p class="lead">количество уникальных клиентов для рассылок:{% unique_client object_list %}</p>
-    </div>
+    {% for object in object_list %}
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h3>Номер:{{ object.id }}</h3>
+            <p class="lead">ФИО: {{ object.client }}</p>
+            <p class="lead">Статус: {{ object.status }}</p>
+            <p class="lead">Тема сообщения: {{ object.message }}</p>
+            <p class="lead">Период: {{ object.period }}</p>
+            <p class="lead">Время рассылки: {{ object.time }}</p>
+            <a href="{% url 'send:view' object.pk %}" type="submit" class="button btn btn-warning">Посмотреть</a>
+            <a href="{% url 'send:update' object.pk %}" type="submit" class="button btn btn-warning">Редактировать</a>
+            <a href="{% url 'send:delete' object.pk %}" type="submit" class="button btn btn-warning">Удалить</a>
+            <hr>
+        </div>
+    {% endfor %}
+    <hr>
+    <hr>
 {% endblock %}
