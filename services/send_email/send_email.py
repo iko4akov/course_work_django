@@ -13,5 +13,5 @@ def send_email_(send_item: Send):
         send_item.message.theme,
         send_item.message.message,
         EMAIL_HOST_USER,
-        [EMAIL_HOST_USER],
+        [f'{send_item.client.email}'],
     )
