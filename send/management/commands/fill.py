@@ -1,6 +1,6 @@
 from django.core.management import BaseCommand
 
-from utils.fills.fill import fill
+from services.fills.fill import fill
 from status.models import Status
 from period.models import Period
 from message.models import Message

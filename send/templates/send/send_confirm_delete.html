@@ -1,19 +1,25 @@
 {% extends 'send/base.html' %}
 {% block content %}
-    <div class="col-12">
-        <div class="row text-center">
-            <div class="col-6 text-center">
-                <div class="card text-center">
-                    <div class="card-body text-center">
-                        <form method="post">
-                            {% csrf_token %}
-                            Подтвердить удаление блога {{ object.title }}, с количеством просмотров {{ object.count_view }}
-                            <button href="{% url 'blog:list' %}" type="submit" class="button btn btn-success">Подтвердить</button>
-                            <a href="{% url "blog:list" %}" class="btn btn-warning">Отмена</a>
-                        </form>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="col-12 bg-danger">
+            <div class="row text-center">
+                <div class="col text-center">
+                    <div class="card text-center">
+                        <div class="card-body text-center bg-dark">
+                            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                                Подтвердить удаление блога {{ object.title }}, с количеством
+                                просмотров {{ object.count_view }}
+                                <button href="{% url 'send:send_list' %}" type="submit"
+                                        class="button btn btn-success">Подтвердить
+                                </button>
+                                <a href="{% url 'send:sends' %}" class="btn btn-warning">Отмена</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 {% endblock %}
