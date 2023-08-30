@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
@@ -36,7 +35,3 @@ class SendDeleteView(DeleteView):
     success_url = reverse_lazy('send:send_list')
 
 
-def index_view(request):
-    context = {}
-    context['object_list'] = Send.objects.all()
-    return render(request, 'send/list.html', context)
