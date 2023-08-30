@@ -11,6 +11,8 @@ class Client(models.Model):
     email = models.EmailField(verbose_name='Почта', unique=True)
     comment = models.TextField(verbose_name='Коментарий')
 
+    user = models.ForeignKey('user.User', on_delete=models.CASCADE, verbose_name='user')
+
     def __str__(self):
         name_slice = lambda x: x[0]+'.' if x else None
         return f'{self.second_name} {name_slice(self.first_name)}{name_slice(self.third_name)}'

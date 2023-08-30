@@ -41,12 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'user',
     'client',
     'status',
     'period',
     'message',
     'send',
     'logs',
+    'mailing',
     'frontend',
 ]
 
@@ -149,3 +151,4 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
 
+AUTH_USER_MODEL = 'user.User'

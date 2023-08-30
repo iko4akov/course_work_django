@@ -7,7 +7,7 @@ from services.send_email.send_email import send_email_
 
 class SendCreateView(CreateView):
     model = Send
-    fields = ['status', 'client', 'period', 'message', 'time']
+    fields = ['status', 'period', 'message', 'time']
     success_url = reverse_lazy('send:send_list')
 
     def form_valid(self, form):
