@@ -11,8 +11,12 @@
                     <div class="col text-center">
                         <div class="card text-center">
                             <div class="card-body text-center bg-dark">
-                                <p>{{ object.theme }}</p>
-                                <p class="card-text">{{ object.message }}</p>
+                                <p>Тема сообщения: {{ object.theme }}</p>
+                                <p class="card-text">Текст Сообщения:{{ object.message }}</p>
+                                <a href="{% url 'message:detail' object.pk %}" type="submit" class="button btn btn-warning">Посмотреть</a>
+            <a href="{% url 'message:update' object.pk %}" type="submit" class="button btn btn-warning">Редактировать</a>
+            <a href="{% url 'message:delete' object.pk %}" type="submit" class="button btn btn-warning">Удалить</a>
+            <hr>
                             </div>
                         </div>
                     </div>

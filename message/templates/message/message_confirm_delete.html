@@ -10,8 +10,8 @@
                             Подтвердить удаление
                             <p>Со временем: {{ object.theme }}</p>
                             <p>С темой сообщения: {{ object.message }}</p>
-                            <p><button href="{% url 'message:message_list' %}" type="submit" class="button btn btn-success">Подтвердить</button>
-                                <a href="{% url "message:message_list" %}" class="btn btn-warning">Отмена</a></p>
+                            <p><button href="{% url 'message:list' %}" type="submit" class="button btn btn-success">Подтвердить</button>
+                                <a href="{% url 'message:detail' object.pk %}" class="btn btn-warning">Отмена</a></p>
                         </form>
                     </div>
                 </div>

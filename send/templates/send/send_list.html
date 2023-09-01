@@ -6,12 +6,13 @@
             <h3>Рассылка №:{{ object.id }}</h3>
             <p class="lead">Статус: {{ object.status }}</p>
             <p class="lead">Тема сообщения: {{ object.message }}</p>
+            <p class="lead">Время рассылки: {{ object.time }}</p>
+            <p class="lead">Пользователь: {{ object.user.email }}</p>
             <a href="{% url 'send:view' object.pk %}" type="submit" class="button btn btn-warning">Посмотреть</a>
             <a href="{% url 'send:update' object.pk %}" type="submit" class="button btn btn-warning">Редактировать</a>
             <a href="{% url 'send:delete' object.pk %}" type="submit" class="button btn btn-warning">Удалить</a>
             <hr>
         </div>
     {% endfor %}
-    <hr>
     <hr>
 {% endblock %}

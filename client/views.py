@@ -13,18 +13,12 @@ class ClientListView(ListView):
 class ClientCreateView(CreateView):
     model = Client
     form_class = ClientForm
-    success_url = reverse_lazy('client:client_list')
+    success_url = reverse_lazy('client:list')
 
-    def post(self, request):
-        context = {}
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            client = form.save(commit=False)
-            client.user = request.user
-            client.save()
-            context['form'] = form
-            return render(request, template_name='client/client_list.html', context=context)
-        return render(request, self.template_name, context)
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 
 class ClientDetailView(DetailView):
     model = Client
@@ -34,10 +28,15 @@ class ClientUpdateView(UpdateView):
     model = Client
     fields = ('first_name', 'second_name', 'third_name', 'email', 'comment')
 
-    success_url = reverse_lazy('client:client_list')
+    def form_valid(self, form):
+        pk = self.request.cliet.pk
+        self.success_url = reverse_lazy('client:detail', kwargs={'pk': pk})
+        return super().form_valid(form)
+
+
 
 
 class ClientDeleteView(DeleteView):
     model = Client
 
-    success_url = reverse_lazy('client:client_list')
+    success_url = reverse_lazy('client:list')

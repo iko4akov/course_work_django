@@ -1,10 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import models
-
 
 NULLABLE = {'blank': True, 'null': True}
 
 
-class Client(models.Model):
+class Client(LoginRequiredMixin, models.Model):
+
     first_name = models.CharField(max_length=100, verbose_name='Имя')
     second_name = models.CharField(max_length=200, verbose_name='Фамилия', **NULLABLE)
     third_name = models.CharField(max_length=200, verbose_name='Отчество', **NULLABLE)

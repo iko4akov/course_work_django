@@ -13,15 +13,19 @@ git clone https://github.com/iko4akov/dj_practice.git
 
 3. Создать файл .env:
     
-`touch README.md`
+`touch env.md`
+
 4. В файле `.env` установить необходимые значения для корректной работы:
     - подключение к бд:
+   
       `USER_PSQL=your_name`
       `PASS_PSQL=your_password`
       `DB_NAME=your_name_DB`
-      - почта для рассылки сообщений:
-`EMAIL_HOST_USER=your_email`
-`EMAIL_HOST_PASSWORD=your_pass`
+   
+    - почта для рассылки сообщений:
+      
+       `EMAIL_HOST_USER=your_email`
+       `EMAIL_HOST_PASSWORD=your_pass`
 
 5. Проверьте состояние сервера PostgreSQL:
 `service postgresql status`
