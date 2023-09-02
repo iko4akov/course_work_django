@@ -9,7 +9,7 @@ class SendCreateView(CreateView):
     fields = ['period', 'message', 'time']
 
     def form_valid(self, form):
-        form.instance.user = self.request.user.pk
+        form.instance.user = self.request.user
         pk = self.kwargs.get('pk')
         self.success_url = reverse_lazy('send:detail', kwargs={'pk': pk})
         return super().form_valid(form)

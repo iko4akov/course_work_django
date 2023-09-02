@@ -1,0 +1,27 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+    <div class="col-12">
+        <div class="row text-center">
+            <div class="col-6 text-center">
+                <div class="card text-center">
+                    <div class="card-body text-center">
+                      <h2>Профиль</h2>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="button btn btn-success">Сохранить</button>
+                        </form>
+                        <form method="get" enctype="multipart/form-data">
+                            {% if form.check_email %}
+                                <H3>Email подтвержден</H3>
+                            {% else %}
+                                <h3>необходимо подтвердить email</h3>
+                                <a class="p-2 btn btn-outline-primary md-4"  href="{%  url 'users:check_email' %}">Подтвердить</a>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

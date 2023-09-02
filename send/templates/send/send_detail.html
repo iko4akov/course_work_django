@@ -18,7 +18,7 @@
                                             <p class="lead">Тема сообщения: {{ object.message }}</p>
                                             <p class="lead">Период: {{ object.period }}</p>
                                             <p class="lead">Время рассылки: {{ object.time }}</p>
-                                            <a href="{% url 'send:view' object.pk %}" type="submit"
+                                            <a href="{% url 'send:detail' object.pk %}" type="submit"
                                                class="button btn btn-warning">Посмотреть</a>
                                             <a href="{% url 'send:update' object.pk %}" type="submit"
                                                class="button btn btn-warning">Редактировать</a>
