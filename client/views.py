@@ -16,7 +16,8 @@ class ClientCreateView(CreateView):
     success_url = reverse_lazy('client:list')
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        pk = self.kwargs.get('pk')
+        self.success_url = reverse_lazy('client:detail', kwargs={'pk': pk})
         return super().form_valid(form)
 
 
@@ -29,11 +30,9 @@ class ClientUpdateView(UpdateView):
     fields = ('first_name', 'second_name', 'third_name', 'email', 'comment')
 
     def form_valid(self, form):
-        pk = self.request.cliet.pk
+        pk = self.kwargs.get('pk')
         self.success_url = reverse_lazy('client:detail', kwargs={'pk': pk})
         return super().form_valid(form)
-
-
 
 
 class ClientDeleteView(DeleteView):

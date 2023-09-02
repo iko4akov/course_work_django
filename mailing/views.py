@@ -11,7 +11,9 @@ class MailingCreateView(CreateView):
     success_url = reverse_lazy('mailing:list')
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        pk = self.kwargs.get('pk')
+        self.success_url = reverse_lazy('mailing:list', kwargs={'pk': pk})
+
         return super().form_valid(form)
 
 
@@ -26,7 +28,12 @@ class MailingDetailView(DetailView):
 class MailingUpdateView(UpdateView):
     model = Mailing
     fields = ['client', 'send']
-    success_url = reverse_lazy('mailing:list')
+
+    def form_valid(self, form):
+        pk = self.kwargs.get('pk')
+        self.success_url = reverse_lazy('mailing:list', kwargs={'pk': pk})
+
+        return super().form_valid(form)
 
 
 class MailingDeleteView(DeleteView):

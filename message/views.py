@@ -27,7 +27,7 @@ class MessageUpdateView(UpdateView):
     fields = ['theme', 'message']
 
     def form_valid(self, form):
-        pk = self.request.user.pk
+        pk = self.kwargs.get('pk')
         self.success_url = reverse_lazy('message:detail', kwargs={'pk': pk})
         return super().form_valid(form)
 
