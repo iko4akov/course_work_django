@@ -37,8 +37,7 @@ class SendUpdateView(LoginRequiredMixin, UpdateView):
         self.success_url = reverse_lazy('send:detail', kwargs={'pk': pk})
         return super().form_valid(form)
 
+
 class SendDeleteView(LoginRequiredMixin, DeleteView):
     model = Send
     success_url = reverse_lazy('send:list')
-
-
