@@ -29,12 +29,22 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-auto">
         <div>
-            <h3 class="float-md-start mb-0"><a class="link-light"  href="{% url 'frontend:index_view' %}">Главная</a></h3>
+            <h3 class="float-md-start mb-0"><a class="link-light" href="{% url 'frontend:index_view' %}">Главная</a>
+            </h3>
+
+
             <nav class="nav nav-masthead justify-content-center float-md-end">
+                {% if user.is_authenticated %}
+                <a class="nav-link" href="{%  url 'user:logout' %}">Выйти</a>
+                <a class="nav-link" href="{%  url 'user:profile' %}">Профиль</a>
                 <a class="nav-link" href="{% url 'mailing:create' %}">Создать рассылку</a>
                 <a class="nav-link" href="{% url 'send:create' %}">Параметры рассылки</a>
                 <a class="nav-link" href="{% url 'client:create' %}">Создать клиента</a>
                 <a class="nav-link" href="{% url 'message:create' %}">Создать сообщение</a>
+                {% else %}
+                <a class="nav-link" href="{%  url 'user:login' %}">Войти</a>
+                <a class="nav-link" href="{%  url 'user:register' %}">Регистрация</a>
+                {% endif %}
             </nav>
         </div>
     </header>
@@ -42,16 +52,18 @@
         {% block content %}
         {% endblock %}
     </main>
-        <footer class="mt-auto text-white-50">
-           <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link active" aria-current="page" href="{% url 'mailing:list' %}">Рассылки</a>
-                <a class="nav-link active" aria-current="page" href="{% url 'message:list' %}">Сообщения</a>
-                <a class="nav-link active" aria-current="page" href="{% url 'client:list' %}">Клиенты</a>
-                <a class="nav-link active" aria-current="page" href="{% url 'send:list' %}">Параметры</a>
-                <a class="nav-link active" aria-current="page" href="#">Логи</a>
-            </nav>
-        </footer>
-    </body>
+    {% if user.is_authenticated %}
+    <footer class="mt-auto text-white-50">
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link active" aria-current="page" href="{% url 'mailing:list' %}">Рассылки</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'message:list' %}">Сообщения</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'client:list' %}">Клиенты</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'send:list' %}">Параметры</a>
+            <a class="nav-link active" aria-current="page" href="#">Логи</a>
+        </nav>
+    </footer>
+    {% endif %}
+</body>
 <div class="troywell-avia"></div>
 <div class="troywell-caa"></div>
 </html>

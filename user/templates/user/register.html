@@ -1,21 +1,13 @@
-{% extends 'catalog/base.html' %}
+{% extends 'frontend/base.html' %}
 {% block content %}
-    <div class="col-12">
-        <div class="row text-center">
-            <div class="col-6 text-center">
-                <div class="card text-center">
-                    <div class="card-body text-center">
-                      <h2>Регистрация</h2>
-                        <form method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <button type="submit" class="button btn btn-success">
-                                    Регистрация
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="card-body text-center">
+    <h2>Регистрация</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button btn btn-success">
+            Регистрация
+        </button>
+    </form>
+</div>
 {% endblock %}

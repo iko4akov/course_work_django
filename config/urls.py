@@ -28,5 +28,6 @@ urlpatterns = [
     path('send/', include('send.urls', namespace='send')),
     path('message/', include('message.urls', namespace='message')),
     path('client/', include('client.urls', namespace='client')),
+    path('user/', include('user.urls', namespace='user')),
 
         ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
