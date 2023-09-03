@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'logs',
     'mailing',
     'frontend',
+    'blog',
 ]
 
 MIDDLEWARE = [

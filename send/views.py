@@ -1,10 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
 from send.models import Send
 
 
-class SendCreateView(CreateView):
+class SendCreateView(LoginRequiredMixin, CreateView):
     model = Send
     fields = ['period', 'message', 'time', ]
     success_url = reverse_lazy('send:list')
@@ -14,15 +15,15 @@ class SendCreateView(CreateView):
         return super().form_valid(form)
 
 
-class SendListView(ListView):
+class SendListView(LoginRequiredMixin, ListView):
     model = Send
 
 
-class SendDetailView(DetailView):
+class SendDetailView(LoginRequiredMixin, DetailView):
     model = Send
 
 
-class SendUpdateView(UpdateView):
+class SendUpdateView(LoginRequiredMixin, UpdateView):
     model = Send
     fields = ['status', 'period', 'message', 'time']
 
@@ -31,7 +32,7 @@ class SendUpdateView(UpdateView):
         self.success_url = reverse_lazy('send:detail', kwargs={'pk': pk})
         return super().form_valid(form)
 
-class SendDeleteView(DeleteView):
+class SendDeleteView(LoginRequiredMixin, DeleteView):
     model = Send
     success_url = reverse_lazy('send:list')
 

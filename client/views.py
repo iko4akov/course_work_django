@@ -6,7 +6,7 @@ from client.forms import ClientForm
 from client.models import Client
 
 
-class ClientListView(ListView):
+class ClientListView(LoginRequiredMixin, ListView):
     model = Client
 
 
