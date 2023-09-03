@@ -39,3 +39,9 @@ def unique_client(object_list: list[Mailing]) -> int:
         return len(mailing_list)
     else:
         return '#'
+
+@register.simple_tag
+def run_mailer(pk):
+    all_senders = Mailing.objects.filter(user=pk, send__pk=[1, 2])
+                                         # send.status=['Создана', 'Запущена', 'Завершена'])
+

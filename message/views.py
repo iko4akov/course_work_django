@@ -7,6 +7,11 @@ from message.models import Message
 class MessageListView(ListView):
     model = Message
 
+    def get_queryset(self):
+        pk = self.request.user.pk
+        queryset = super().get_queryset().filter(user=pk)
+        return queryset
+
 
 class MessageDetailView(DetailView):
     model = Message

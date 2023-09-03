@@ -18,6 +18,11 @@ class SendCreateView(LoginRequiredMixin, CreateView):
 class SendListView(LoginRequiredMixin, ListView):
     model = Send
 
+    def get_queryset(self):
+        pk = self.request.user.pk
+        queryset = super().get_queryset().filter(user=pk)
+        return queryset
+
 
 class SendDetailView(LoginRequiredMixin, DetailView):
     model = Send

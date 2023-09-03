@@ -8,6 +8,10 @@ from client.models import Client
 
 class ClientListView(LoginRequiredMixin, ListView):
     model = Client
+    def get_queryset(self):
+        pk = self.request.user.pk
+        queryset = super().get_queryset().filter(user=pk)
+        return queryset
 
 
 class ClientCreateView(LoginRequiredMixin, CreateView):

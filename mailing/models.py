@@ -10,4 +10,8 @@ class Mailing(models.Model):
     def __str__(self):
         return f'{self.client} - {self.send}'
 
+    class Meta:
+        verbose_name = 'Рассылка'
+        verbose_name_plural = 'Рассылка'
+
 

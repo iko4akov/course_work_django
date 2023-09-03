@@ -19,6 +19,13 @@ class MailingCreateView(LoginRequiredMixin, CreateView):
 class MailingListView(LoginRequiredMixin, ListView):
     model = Mailing
 
+    def get_queryset(self):
+        pk = self.request.user.pk
+        queryset = super().get_queryset()
+        queryset = queryset.filter(user=pk)
+        return queryset
+
+
 
 class MailingDetailView(LoginRequiredMixin, DetailView):
     model = Mailing
