@@ -12,6 +12,7 @@ class Blog(models.Model):
     public = models.BooleanField(verbose_name='Признак публикации')
     count_view = models.IntegerField(default=0, verbose_name='Просмотры')
 
+    user = models.ForeignKey('user.User', related_name='user', on_delete=models.CASCADE, **NULLABLE)
     def __str__(self):
         return f'{self.title}'
 

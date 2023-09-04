@@ -15,10 +15,12 @@
                                         <div class="btn-group">
                                              <a href="{% url 'blog:view' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">
                                                 View {{ object.count_view }}</a>
+                                            {% if request.user == object.user %}
                                              <a href="{% url 'blog:update' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">
                                                 Edite</a>
                                             <a href="{% url 'blog:delete' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">
                                                 Delete</a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <p class="text-muted">{{ object.date_created }}</p>
