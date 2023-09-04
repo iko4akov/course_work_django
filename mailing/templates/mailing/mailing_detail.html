@@ -19,11 +19,11 @@
                                             <p class="lead">Статус: {{ object.send.status.name }}</p>
                                             <p class="lead">Период: {{ object.send.period.name }}</p>
                                             <p class="lead">Клиент: {{ object.client.email }}</p>
-                                            <a href="{% url 'params:detail' object.pk %}" type="submit"
+                                            <a href="{% url 'mailing:detail' object.pk %}" type="submit"
                                                class="button btn btn-warning">Посмотреть</a>
-                                            <a href="{% url 'params:update' object.pk %}" type="submit"
+                                            <a href="{% url 'mailing:update' object.pk %}" type="submit"
                                                class="button btn btn-warning">Редактировать</a>
-                                            <a href="{% url 'params:delete' object.pk %}" type="submit"
+                                            <a href="{% url 'mailing:delete' object.pk %}" type="submit"
                                                class="button btn btn-warning">Удалить</a>
                                             <hr>
                                         </div>

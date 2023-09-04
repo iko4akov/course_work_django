@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import Http404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from message.models import Message
@@ -16,6 +17,12 @@ class MessageListView(ListView):
 class MessageDetailView(DetailView):
     model = Message
 
+    def get_object(self, queryset=None):
+        object = super().get_object(queryset)
+        if object.user != self.request.user:
+            raise Http404
+
+        return object
 
 class MessageCreateView(LoginRequiredMixin, CreateView):
     model = Message
@@ -36,8 +43,22 @@ class MessageUpdateView(LoginRequiredMixin, UpdateView):
         self.success_url = reverse_lazy('message:detail', kwargs={'pk': pk})
         return super().form_valid(form)
 
+    def get_object(self, queryset=None):
+        object = super().get_object(queryset)
+        if object.user != self.request.user:
+            raise Http404
+
+        return object
+
 
 class MessageDeleteView(LoginRequiredMixin, DeleteView):
     model = Message
 
     success_url = reverse_lazy('message:list')
+
+    def get_object(self, queryset=None):
+        object = super().get_object(queryset)
+        if object.user != self.request.user:
+            raise Http404
+
+        return object

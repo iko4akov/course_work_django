@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import Http404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
 
@@ -8,6 +9,7 @@ from client.models import Client
 
 class ClientListView(LoginRequiredMixin, ListView):
     model = Client
+
     def get_queryset(self):
         pk = self.request.user.pk
         queryset = super().get_queryset().filter(user=pk)
@@ -27,6 +29,13 @@ class ClientCreateView(LoginRequiredMixin, CreateView):
 class ClientDetailView(LoginRequiredMixin, DetailView):
     model = Client
 
+    def get_object(self, queryset=None):
+        object = super().get_object(queryset)
+        if object.user != self.request.user:
+            raise Http404
+
+        return object
+
 
 class ClientUpdateView(LoginRequiredMixin, UpdateView):
     model = Client
@@ -37,8 +46,22 @@ class ClientUpdateView(LoginRequiredMixin, UpdateView):
         self.success_url = reverse_lazy('client:detail', kwargs={'pk': pk})
         return super().form_valid(form)
 
+    def get_object(self, queryset=None):
+        object = super().get_object(queryset)
+        if object.user != self.request.user:
+            raise Http404
+
+        return object
+
 
 class ClientDeleteView(LoginRequiredMixin, DeleteView):
     model = Client
 
     success_url = reverse_lazy('client:list')
+
+    def get_object(self, queryset=None):
+        object = super().get_object(queryset)
+        if object.user != self.request.user:
+            raise Http404
+
+        return object

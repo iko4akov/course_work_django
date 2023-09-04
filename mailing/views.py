@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import Http404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
@@ -30,6 +31,13 @@ class MailingListView(LoginRequiredMixin, ListView):
 class MailingDetailView(LoginRequiredMixin, DetailView):
     model = Mailing
 
+    def get_object(self, queryset=None):
+        object = super().get_object(queryset)
+        if object.user != self.request.user:
+            raise Http404
+
+        return object
+
 
 class MailingUpdateView(LoginRequiredMixin, UpdateView):
     model = Mailing
@@ -41,7 +49,21 @@ class MailingUpdateView(LoginRequiredMixin, UpdateView):
 
         return super().form_valid(form)
 
+    def get_object(self, queryset=None):
+        object = super().get_object(queryset)
+        if object.user != self.request.user:
+            raise Http404
+
+        return object
+
 
 class MailingDeleteView(LoginRequiredMixin, DeleteView):
     model = Mailing
     success_url = reverse_lazy('mailing:list')
+
+    def get_object(self, queryset=None):
+        object = super().get_object(queryset)
+        if object.user != self.request.user:
+            raise Http404
+
+        return object
