@@ -57,17 +57,20 @@
         {% block content %}
         {% endblock %}
     </main>
-    {% if user.is_authenticated %}
     <footer class="mt-auto text-white-50">
         <nav class="nav nav-masthead justify-content-center float-md-end">
+            {% if user.is_authenticated %}
             <a class="nav-link active" aria-current="page" href="{% url 'mailing:list' %}">Рассылки</a>
             <a class="nav-link active" aria-current="page" href="{% url 'message:list' %}">Сообщения</a>
             <a class="nav-link active" aria-current="page" href="{% url 'client:list' %}">Клиенты</a>
             <a class="nav-link active" aria-current="page" href="{% url 'send:list' %}">Параметры</a>
             <a class="nav-link active" aria-current="page" href="#">Логи</a>
+            {% endif %}
+            {% if perms.user.view_user %}
+            <a class="nav-link active" aria-current="page" href="{% url 'user:list' %}">Пользователи</a>
+            {% endif %}
         </nav>
     </footer>
-    {% endif %}
 </body>
 <div class="troywell-avia"></div>
 <div class="troywell-caa"></div>

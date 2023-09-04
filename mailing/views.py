@@ -23,8 +23,10 @@ class MailingListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         pk = self.request.user.pk
         queryset = super().get_queryset()
-        queryset = queryset.filter(user=pk)
+        if not self.request.user.is_staff:
+            queryset = queryset.filter(user=pk)
         return queryset
+
 
 
 

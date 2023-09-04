@@ -17,3 +17,11 @@ class User(AbstractUser):
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
+
+    class Meta:
+        permissions = [
+            (
+                'view_users',
+                'Can view users'
+            ),
+        ]

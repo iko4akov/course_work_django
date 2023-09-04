@@ -17,3 +17,10 @@ class Send(models.Model):
     class Meta:
         verbose_name = 'Рассылка'
         verbose_name_plural = 'Рассылка'
+        permissions = [
+            (
+                'set_status',
+                'Can status send'
+            )
+        ]
+

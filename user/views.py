@@ -1,13 +1,21 @@
 from random import randint
 
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 
 from services.generate_password import generate_password
 from services.send_email import send_email
 from user.forms import UserRegisterForm, UserProfile
 from user.models import User
+
+
+class UserListView(PermissionRequiredMixin, ListView):
+    model = User
+    fields = '__all__'
+    permission_required = 'user.view_user'
+
 
 
 class RegistertView(CreateView):
@@ -22,7 +30,6 @@ class RegistertView(CreateView):
 class UserProfileView(UpdateView):
     model = User
     form_class = UserProfile
-
     template_name = 'user/user_form.html'
 
     success_url = reverse_lazy('user:profile')
@@ -74,3 +81,8 @@ def password(request):
             return render(request, template_name='user/password.html', context=context)
 
     return render(request, template_name='user/password.html')
+
+class UserDeleteView(PermissionRequiredMixin, DeleteView):
+    model = User
+    success_url = reverse_lazy('user:delete')
+    permission_required = 'user.delete_user'
