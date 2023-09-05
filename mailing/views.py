@@ -5,7 +5,7 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 
 from mailing.forms import MailingForm
 from mailing.models import Mailing
-
+from services.run_mailer import run_mailer
 
 class MailingCreateView(LoginRequiredMixin, CreateView):
     model = Mailing
@@ -14,7 +14,9 @@ class MailingCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        run_mailer()
         return super().form_valid(form)
+
 
 
 class MailingListView(LoginRequiredMixin, ListView):
@@ -26,6 +28,7 @@ class MailingListView(LoginRequiredMixin, ListView):
         if not self.request.user.is_staff:
             queryset = queryset.filter(user=pk)
         return queryset
+
 
 
 

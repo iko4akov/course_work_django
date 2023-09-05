@@ -1,6 +1,5 @@
 from django.contrib import admin
 
-from client.apps import ClientConfig
 from client.models import Client
 
 
