@@ -1,6 +1,5 @@
 {% extends 'frontend/base.html' %}
 {% block content %}
-
     <form method="post">
         {% csrf_token %}
         <div class="col-12 bg-danger">
@@ -9,12 +8,11 @@
                     <div class="card text-center">
                         <div class="card-body text-center bg-dark">
                             <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-                                Подтвердить удаление блога {{ object.title }}, с количеством
-                                просмотров {{ object.count_view }}
-                                <button href="{% url 'send:send_list' %}" type="submit"
+                                Подтвердить удаление параметров {{ object }}
+                                <button href="{% url 'send:list' %}" type="submit"
                                         class="button btn btn-success">Подтвердить
                                 </button>
-                                <a href="{% url 'send:sends' %}" class="btn btn-warning">Отмена</a>
+                                <a href="{% url 'send:detail' object.pk %}" class="btn btn-warning">Отмена</a>
                             </div>
                         </div>
                     </div>

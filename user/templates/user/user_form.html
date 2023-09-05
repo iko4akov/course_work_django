@@ -1,0 +1,20 @@
+{% extends 'frontend/base.html' %}
+{% block content %}
+<div class="card-body text-center">
+    <h2>Профиль {{ request.user.check_email }}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button btn btn-success">Сохранить</button>
+    </form>
+    <form method="get" enctype="multipart/form-data">
+        {% if request.user.check_email %}
+        <H3>Email подтвержден</H3>
+        <a class="p-2 btn btn-outline-primary md-4" href="{%  url 'user:password' %}">Изменить пароль</a>
+        {% else %}
+        <h3>необходимо подтвердить email</h3>
+        <a class="p-2 btn btn-outline-primary md-4" href="{%  url 'user:check_email' %}">Подтвердить</a>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

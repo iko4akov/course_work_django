@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
-from send.models import Send
-
+from mailing.models import Mailing
 
 def index_view(request):
     context = {}
-    context['object_list'] = Send.objects.all()
+    pk = request.user.pk
+    context['object_list'] = Mailing.objects.filter(user=pk).all()
     return render(request, 'frontend/list.html', context)

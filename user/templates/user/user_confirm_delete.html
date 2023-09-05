@@ -1,0 +1,20 @@
+{% extends 'frontend/base.html' %}
+{% block content %}
+    <div class="col-12 bg-danger">
+        <div class="row text-center">
+            <div class="col text-center">
+                <div class="card text-center">
+                    <div class="card-body text-center bg-dark">
+                        <form method="post">
+                            {% csrf_token %}
+                            Подтвердить удаление клиента:
+                            <p>С почтой: {{ object.email }}</p>
+                            <p><button href="{% url 'user:list' %}" type="submit" class="button btn btn-success">Подтвердить</button>
+                                <a href="{% url 'user:list'  %}" class="btn btn-warning">Отмена</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

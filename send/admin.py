@@ -5,6 +5,6 @@ from send.models import Send
 
 @admin.register(Send)
 class SendAdmin(admin.ModelAdmin):
-    list_display = ('client', 'status', 'period', 'time')
-    list_filter = ('client', 'status', 'period', 'time')
-    search_fields = ('client', 'status', 'period', 'time')
+    list_display = ('status', 'period', 'time', 'message', 'user')
+    list_filter = ('status', 'period', 'time', 'message', 'user')
+    search_fields = ('status', 'period', 'time', 'message', 'user')

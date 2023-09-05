@@ -6,7 +6,7 @@
             <p class="lead">ФИО: {{ object }}</p>
             <p class="lead">Почта: {{ object.email }}</p>
             <p class="lead">Комментарий: {{ object.comment|slice:50 }}</p>
-            <a href="{% url 'client:client_view' object.pk %}" type="submit" class="button btn btn-warning">Посмотреть</a>
+            <a href="{% url 'client:detail' object.pk %}" type="submit" class="button btn btn-warning">Посмотреть</a>
             <a href="{% url 'client:update' object.pk %}" type="submit" class="button btn btn-warning">Редактировать</a>
             <a href="{% url 'client:delete' object.pk %}" type="submit" class="button btn btn-warning">Удалить</a>
             <hr>

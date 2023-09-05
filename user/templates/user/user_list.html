@@ -1,0 +1,16 @@
+{% extends 'frontend/base.html' %}
+{% block content %}
+    {% for object in object_list %}
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h3>User №:{{ object.id }}</h3>
+            <p class="lead">email: {{ object.email }}</p>
+            <p class="lead">avatar: {{ object.avatar }}</p>
+            <p class="lead">country: {{ object.country }}</p>
+            <p class="lead">phone: {{ object.phone }}</p>
+            {% if perms.user.delete_user %}
+            <a href="{% url 'user:delete' object.pk %}" type="submit" class="button btn btn-warning">Удалить</a>
+            {% endif %}
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'frontend/base.html' %}
+{% block content %}
+<div class="card-body text-center">
+    <h2>Регистрация</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button btn btn-success">
+            Регистрация
+        </button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'frontend/base.html' %}
+{% block content %}
+                    <div class="card-body text-center">
+                      <h2>ВХОД</h2>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="button btn btn-success">
+                                {% if object %}
+                                    Обновить
+                                {% else %}
+                                    Войти
+                                {% endif %}
+                            </button>
+                        </form>
+                    <a class="p-2 btn btn-outline-primary md-4"  href="{%  url 'user:password' %}">Я забыл пароль</a>
+                    </div>
+{% endblock %}

@@ -7,8 +7,8 @@ app_name = SendConfig.name
 
 urlpatterns = [
     path('create/', SendCreateView.as_view(), name='create'),
-    path('detail/<int:pk>', SendDetailView.as_view(), name='view'),
+    path('detail/<int:pk>', SendDetailView.as_view(), name='detail'),
     path('update/<int:pk>', SendUpdateView.as_view(), name='update'),
     path('delete/<int:pk>', SendDeleteView.as_view(), name='delete'),
-    path('sends/', SendListView.as_view(), name='send_list'),
+    path('send/', SendListView.as_view(), name='list'),
 ]

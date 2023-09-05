@@ -1,15 +1,18 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import models
-
 
 NULLABLE = {'blank': True, 'null': True}
 
 
-class Client(models.Model):
+class Client(LoginRequiredMixin, models.Model):
+
     first_name = models.CharField(max_length=100, verbose_name='Имя')
     second_name = models.CharField(max_length=200, verbose_name='Фамилия', **NULLABLE)
     third_name = models.CharField(max_length=200, verbose_name='Отчество', **NULLABLE)
     email = models.EmailField(verbose_name='Почта', unique=True)
     comment = models.TextField(verbose_name='Коментарий')
+
+    user = models.ForeignKey('user.User', on_delete=models.CASCADE, verbose_name='user')
 
     def __str__(self):
         name_slice = lambda x: x[0]+'.' if x else None

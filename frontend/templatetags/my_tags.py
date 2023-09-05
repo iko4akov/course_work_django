@@ -1,7 +1,7 @@
 from django import template
 
 from config.settings import MEDIA_ROOT, MEDIA_URL
-from send.models import Send
+from mailing.models import Mailing
 
 register = template.Library()
 
@@ -20,22 +20,28 @@ def mediapath(value: str) -> str:
         return '#'
 
 @register.simple_tag
-def count_acive(object_list: list[Send]) -> int:
+def count_acive(object_list: list[Mailing]) -> int:
     if object_list:
         count = 0
         for obj in object_list:
-            if obj.status.name == 'Запущена':
+            if obj.send.status.name == 'Запущена':
                 count += 1
         return count
     else:
         return '#'
 
 @register.simple_tag
-def unique_client(object_list: list[Send]) -> int:
+def unique_client(object_list: list[Mailing]) -> int:
     if object_list:
-        clients = set()
+        mailing_list = set()
         for obj in object_list:
-            clients.add(obj.client.email)
-        return len(clients)
+            mailing_list.add(obj.client.email)
+        return len(mailing_list)
     else:
         return '#'
+
+@register.simple_tag
+def run_mailer(pk):
+    all_senders = Mailing.objects.filter(user=pk, send__pk=[1, 2])
+                                         # send.status=['Создана', 'Запущена', 'Завершена'])
+
