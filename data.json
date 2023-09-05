@@ -848,10 +848,10 @@
   },
   {
     "model": "sessions.session",
-    "pk": "oouzjv4apop468cpn6jsrmnh75agvxwp",
+    "pk": "vawox66vggaal8zlb5qpnzn6ozeigohe",
     "fields": {
-      "session_data": ".eJxVjDsOwyAQBe9CHSHAwLIp0_sMaPkFJxGWjF1FuXtsyUXSvpl5b-ZpW6vfel78lNiVGXb53QLFZ24HSA9q95nHua3LFPih8JN2Ps4pv26n-3dQqde9jlqhjCZaDU6jRHSohMyS0JEFqUAV6-wORBBDggDFCgNBEaEqwg7s8wWjsjY8:1qdCn5:3C2nrXp4S3577xDcxEqb6U7jSBICjlftqN_ihT9IvfI",
-      "expire_date": "2023-09-18T16:51:07.608Z"
+      "session_data": ".eJxVjEsOwjAMBe-SNYoaJ6YOS_Y9QxXHDi2gRupnhbg7VOoCtm9m3sv0aVuHflt07kcxF-PM6XfjlB867UDuabpVm-u0ziPbXbEHXWxXRZ_Xw_07GNIyfGuUWBSK44ycHWmk2IrHcG44NkrgiECRS0Alr5hKIJQWQhQG8Czm_QHq7Tfu:1qdXZ4:3jH0_4dd2ixn5U6JKzTnz0Yx5PSfP-agcBwkDRnkOL4",
+      "expire_date": "2023-09-19T15:02:02.649Z"
     }
   },
   {
@@ -859,7 +859,7 @@
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$600000$QERISVS2qnMNQZpdoRmMHV$Ud0gcRfXUBoFEK8g/1NQ7OcsRNeGPwgwJPkYl3ZPgZk=",
-      "last_login": "2023-09-04T16:50:15.415Z",
+      "last_login": "2023-09-05T15:02:02.641Z",
       "is_superuser": true,
       "first_name": "",
       "last_name": "",
@@ -881,7 +881,7 @@
     "pk": 5,
     "fields": {
       "password": "pbkdf2_sha256$600000$xtnPMneOIuIONL9WfZOzvn$FhoEYsFeMgHld66LkRJ1LXlejTuFlAe9ZqZS/H/blvE=",
-      "last_login": "2023-09-04T16:51:07.604Z",
+      "last_login": "2023-09-05T15:01:30.385Z",
       "is_superuser": false,
       "first_name": "",
       "last_name": "",
@@ -1268,6 +1268,339 @@
     }
   },
   {
+    "model": "logs.logs",
+    "pk": 1,
+    "fields": {
+      "try_last": "2023-09-05T14:59:54.754Z",
+      "send": 11,
+      "respounse": "Ошибка при отправке письма: \"to\" argument must be a list or tuple"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 2,
+    "fields": {
+      "try_last": "2023-09-05T14:59:54.818Z",
+      "send": 12,
+      "respounse": "Ошибка при отправке письма: \"to\" argument must be a list or tuple"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 3,
+    "fields": {
+      "try_last": "2023-09-05T14:59:54.832Z",
+      "send": 50,
+      "respounse": "Ошибка при отправке письма: \"to\" argument must be a list or tuple"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 4,
+    "fields": {
+      "try_last": "2023-09-05T14:59:54.842Z",
+      "send": 47,
+      "respounse": "Ошибка при отправке письма: \"to\" argument must be a list or tuple"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 5,
+    "fields": {
+      "try_last": "2023-09-05T14:59:54.851Z",
+      "send": 13,
+      "respounse": "Ошибка при отправке письма: \"to\" argument must be a list or tuple"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 6,
+    "fields": {
+      "try_last": "2023-09-05T14:59:54.860Z",
+      "send": 14,
+      "respounse": "Ошибка при отправке письма: \"to\" argument must be a list or tuple"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 7,
+    "fields": {
+      "try_last": "2023-09-05T15:01:35.806Z",
+      "send": 11,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 8,
+    "fields": {
+      "try_last": "2023-09-05T15:01:36.599Z",
+      "send": 12,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 9,
+    "fields": {
+      "try_last": "2023-09-05T15:01:37.464Z",
+      "send": 50,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 10,
+    "fields": {
+      "try_last": "2023-09-05T15:01:38.205Z",
+      "send": 47,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 11,
+    "fields": {
+      "try_last": "2023-09-05T15:01:38.750Z",
+      "send": 13,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 12,
+    "fields": {
+      "try_last": "2023-09-05T15:01:39.562Z",
+      "send": 14,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 13,
+    "fields": {
+      "try_last": "2023-09-05T15:01:40.249Z",
+      "send": 50,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 14,
+    "fields": {
+      "try_last": "2023-09-05T15:19:33.553Z",
+      "send": 11,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 15,
+    "fields": {
+      "try_last": "2023-09-05T15:19:34.269Z",
+      "send": 12,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 16,
+    "fields": {
+      "try_last": "2023-09-05T15:19:34.959Z",
+      "send": 50,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 17,
+    "fields": {
+      "try_last": "2023-09-05T15:19:35.702Z",
+      "send": 47,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 18,
+    "fields": {
+      "try_last": "2023-09-05T15:19:36.321Z",
+      "send": 13,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 19,
+    "fields": {
+      "try_last": "2023-09-05T15:19:37.101Z",
+      "send": 14,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 20,
+    "fields": {
+      "try_last": "2023-09-05T15:19:37.637Z",
+      "send": 50,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 21,
+    "fields": {
+      "try_last": "2023-09-05T15:19:38.392Z",
+      "send": 14,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 22,
+    "fields": {
+      "try_last": "2023-09-05T15:47:29.519Z",
+      "send": 11,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 23,
+    "fields": {
+      "try_last": "2023-09-05T15:47:30.140Z",
+      "send": 12,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 24,
+    "fields": {
+      "try_last": "2023-09-05T15:47:30.910Z",
+      "send": 50,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 25,
+    "fields": {
+      "try_last": "2023-09-05T15:47:31.494Z",
+      "send": 47,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 26,
+    "fields": {
+      "try_last": "2023-09-05T15:47:32.288Z",
+      "send": 13,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 27,
+    "fields": {
+      "try_last": "2023-09-05T15:47:32.980Z",
+      "send": 14,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 28,
+    "fields": {
+      "try_last": "2023-09-05T15:47:33.874Z",
+      "send": 50,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 29,
+    "fields": {
+      "try_last": "2023-09-05T15:47:34.518Z",
+      "send": 14,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 30,
+    "fields": {
+      "try_last": "2023-09-05T15:55:04.373Z",
+      "send": 11,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 31,
+    "fields": {
+      "try_last": "2023-09-05T15:55:05.118Z",
+      "send": 12,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 32,
+    "fields": {
+      "try_last": "2023-09-05T15:55:05.789Z",
+      "send": 50,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 33,
+    "fields": {
+      "try_last": "2023-09-05T15:55:06.303Z",
+      "send": 47,
+      "respounse": "Ошибка при отправке письма: (554, b'5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1693929306-5tZvSt0DRKo0-hHdc3DIn')"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 34,
+    "fields": {
+      "try_last": "2023-09-05T15:55:07.256Z",
+      "send": 13,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 35,
+    "fields": {
+      "try_last": "2023-09-05T15:55:07.796Z",
+      "send": 14,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 36,
+    "fields": {
+      "try_last": "2023-09-05T15:55:08.547Z",
+      "send": 50,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
+    "model": "logs.logs",
+    "pk": 37,
+    "fields": {
+      "try_last": "2023-09-05T15:55:09.074Z",
+      "send": 14,
+      "respounse": "Письмо успешно отправлено"
+    }
+  },
+  {
     "model": "mailing.mailing",
     "pk": 16,
     "fields": {
@@ -1292,6 +1625,51 @@
       "client": 10,
       "send": 50,
       "user": 6
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 19,
+    "fields": {
+      "client": 4,
+      "send": 47,
+      "user": 5
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 20,
+    "fields": {
+      "client": 10,
+      "send": 13,
+      "user": 5
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 21,
+    "fields": {
+      "client": 4,
+      "send": 14,
+      "user": 5
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 22,
+    "fields": {
+      "client": 10,
+      "send": 50,
+      "user": 5
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 23,
+    "fields": {
+      "client": 1,
+      "send": 14,
+      "user": 5
     }
   },
   {
