@@ -6,15 +6,14 @@ from logs.models import Logs
 from mailing.models import Mailing
 
 
-def run_mailer():
+def run_mailer(period):
     mails = Mailing.objects.all()
-
     for mail in mails:
         email = mail.user.email
         message = mail.send.message.message
         theme = mail.send.message.theme
-        status = mail.send.status.pk
-        if status == 1 or status == 3:
+        get_period = mail.send.period.name
+        if get_period == period:
             try:
                 send_mail(theme, message, from_email=EMAIL_HOST_USER, recipient_list=[email])
 

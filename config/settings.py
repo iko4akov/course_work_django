@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
+
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     'mailing',
     'frontend',
     'blog',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -156,3 +158,11 @@ AUTH_USER_MODEL = 'user.User'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/user/'
+
+CRONTAB_PYTHON_EXECUTABLE = '/usr/bin/python3'
+
+CRONJOBS = [
+    ('47 20 * * *', 'distribution.cron.run_per_day', '>> /home/iko4ak/courses_works/distribution/cron.log'),
+    ('47 20 * * 0', 'distribution.cron.run_per_week', '>> /home/iko4ak/courses_works/distribution/cron.log'),
+    ('47 20 1 * *', 'distribution.cron.run_per_month', '>> /home/iko4ak/courses_works/distribution/cron.log'),
+]
