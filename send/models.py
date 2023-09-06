@@ -12,7 +12,7 @@ class Send(models.Model):
     user = models.ForeignKey('user.User', on_delete=models.CASCADE, verbose_name='user')
 
     def __str__(self):
-        return f'{self.pk} {self.message.theme}'
+        return f'{self.pk} {self.message.theme} {self.status.name} {self.period.name}'
 
     class Meta:
         verbose_name = 'Рассылка'

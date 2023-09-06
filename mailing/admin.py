@@ -5,6 +5,6 @@ from mailing.models import Mailing
 
 @admin.register(Mailing)
 class MailingAdmin(admin.ModelAdmin):
-    list_display = ('user', 'client', 'send')
-    list_filter = ('user', 'client', 'send')
-    search_fields = ('user', 'client', 'send')
+    list_display = [field.name for field in Mailing._meta.fields]
+    search_fields = [field.name for field in Mailing._meta.fields]
+    list_filter = [field.name for field in Mailing._meta.fields]
